@@ -50,6 +50,7 @@ void loop() {
   int DistanceDroite = analogRead(IR_DROITE);
   int DistanceGauche = analogRead(IR_GAUCHE);
 
+//Un peu trop à droite
   if (DistanceDroite < 200 && DistanceDevant > 400 && DistanceGauche > 400) {
     TourneG();
     delay(100);
@@ -57,6 +58,7 @@ void loop() {
     delay(500);
 
   }
+  //Un peu trop à gauche
   if (DistanceGauche < 200 && DistanceDevant > 400 && DistanceDroite > 400) {
     TourneD();
     delay(100);
@@ -64,6 +66,31 @@ void loop() {
     delay(500);
 
   }
+  //Mur devant
+  if (DistanceGauche < 400) {
+
+    if(DistanceDroite < 400){
+      TourneG();
+      delay(200);
+      AvanceMoteur();
+      delay(500);
+    }
+    else if(DistanceGauche < 400){
+      TourneD();
+      delay(200);
+      AvanceMoteur();
+      delay(500);
+    }
+    else{
+      TourneG();
+      delay(200);
+      AvanceMoteur();
+      delay(500);
+    }
+
+  }
+
+
 
   if (DistanceDevant < 400) {
     StopMoteur();
