@@ -22,23 +22,33 @@ void setup() {
 
   Serial.begin(9600);
 
-  digitalWrite(12, HIGH);
-  capteurD.init();
-  capteurD.configureDefault();
-  capteurD.setAddress(0x20);
+  initCapteurs(capteurD, 0x20);
+  initCapteurs(capteur, 0x22);
+  initCapteurs(capteurG, 0x24);
 
-  digitalWrite(11, HIGH);
-  capteur.init();
-  capteur.configureDefault();
-  capteurD.setAddress(0x22);
+  //digitalWrite(12, HIGH);
+  //capteurD.init();
+  //capteurD.configureDefault();
+  //capteurD.setAddress(0x20);
 
-  digitalWrite(10, HIGH);
-  capteurG.init();
-  capteurG.configureDefault();
-  capteurD.setAddress(0x24);
+  //digitalWrite(11, HIGH);
+  //capteur.init();
+  //capteur.configureDefault();
+  //capteurD.setAddress(0x22);
+
+  //digitalWrite(10, HIGH);
+  //capteurG.init();
+  //capteurG.configureDefault();
+  //capteurD.setAddress(0x24);
 
 
 
+}
+void initCapteurs(VL6180X& cap, uint8_t addresse) {
+  cap.setAddress(addresse);
+  cap.init();
+  cap.configureDefault();
+  cap.setTimeout(500);
 }
 /*
 void StopMoteur(){
@@ -68,8 +78,8 @@ void TourneD(){
 
 void loop() {
   
-  Serial.println("testt");
-/*
+  //Serial.println("test");
+
   int DistanceDroite = capteurD.readRangeSingle();
   int DistanceDevant = capteur.readRangeSingle();
   int DistanceGauche = capteurG.readRangeSingle();
@@ -84,7 +94,7 @@ void loop() {
 
   DistanceGauche = capteurG.readRangeSingle();
   Serial.print("Capteur gauche: ");
-  Serial.println(DistanceGauche);*/
+  Serial.println(DistanceGauche);
 
   /*int DistanceDevant = analogRead(IR_DEVANT);
   int DistanceDroite = analogRead(IR_DROITE);
