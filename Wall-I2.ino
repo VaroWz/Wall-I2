@@ -10,15 +10,15 @@ VL6180X capteurG;
 #define IR_DROITE A1
 #define IR_GAUCHE A2*/
 
-Servo monServo;
-Servo monServo2;
+//Servo monServo;
+//Servo monServo2;
 
 void setup() {
 
   Wire.begin();
 
-  monServo.attach(8);
-  monServo2.attach(9);
+  //monServo.attach(8);
+  //monServo2.attach(9);
 
   Serial.begin(9600);
 
