@@ -120,23 +120,23 @@ void loop() {
 
   }
   else{
-    if(DistanceDevant > 130){
+    if(DistanceDevant > 135){
       AvanceMoteur();
-      /*if(DistanceDroite > 35 && DistanceGauche > 35){
+      /*if(DistanceDroite > 20 && DistanceGauche > 20){
         AvanceMoteur();
       }
       
     
       //rectifs
-      if(DistanceGauche < 35){
+      if(DistanceGauche < 20){
         TourneD();
       }
-      else if (DistanceDroite < 35) {
+      else if (DistanceDroite < 20) {
         TourneG();
       }*/
     }
     else{
-      if (DistanceDevant<130){
+      if (DistanceDevant<135){
         if(DistanceDevant < 30){
           ReculerMoteur();
         }
