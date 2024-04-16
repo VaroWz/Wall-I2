@@ -64,34 +64,45 @@ void initCapteurs(VL6180X& cap, uint8_t addresse) {
 }
 
 void StopMoteur(){
-  Serial.println("STOP");
+  //Serial.println("STOP");
   monServo.writeMicroseconds(1500);
   monServo2.writeMicroseconds(1450);
 }
 
 void AvanceMoteur(){
-  Serial.println("AVANCE");
+  //Serial.println("AVANCE");
   monServo.writeMicroseconds(2000);
   monServo2.writeMicroseconds(1000);
 }
 
 void ReculerMoteur(){
-  Serial.println("RECULE");
+  //Serial.println("RECULE");
   monServo.writeMicroseconds(1000);
   monServo2.writeMicroseconds(2000);
   delay(100);
 }
 
 void TourneG(){
-  Serial.println("GAUCHE");
+  //Serial.println("GAUCHE");
   monServo.writeMicroseconds(1500);
   monServo2.writeMicroseconds(1000);
 }
 
 void TourneD(){
-  Serial.println("DROITE");
+  //Serial.println("DROITE");
   monServo.writeMicroseconds(2000);
   monServo2.writeMicroseconds(1500);
+}
+void CalibTourneG(){
+  //Serial.println("GAUCHE");
+  monServo.writeMicroseconds(1700);
+  monServo2.writeMicroseconds(1200);
+}
+
+void CalibTourneD(){
+  //Serial.println("DROITE");
+  monServo.writeMicroseconds(1800);
+  monServo2.writeMicroseconds(1300);
 }
 
 void loop() {
@@ -101,42 +112,42 @@ void loop() {
   int DistanceDevant = capteur.readRangeSingle();
   int DistanceGauche = capteurG.readRangeSingle();
 
-  DistanceDroite = capteurD.readRangeSingle();
-  Serial.print("Capteur droite: ");
-  Serial.println(DistanceDroite);
+  //DistanceDroite = capteurD.readRangeSingle();
+  //Serial.print("Capteur droite: ");
+  //Serial.println(DistanceDroite);
 
   DistanceDevant = capteur.readRangeSingle();
   Serial.print("Capteur milieu: ");
   Serial.println(DistanceDevant);
 
-  DistanceGauche = capteurG.readRangeSingle();
-  Serial.print("Capteur gauche: ");
-  Serial.println(DistanceGauche);
+  //DistanceGauche = capteurG.readRangeSingle();
+  //Serial.print("Capteur gauche: ");
+  //Serial.println(DistanceGauche);
 
   
-  if(DistanceDevant > 200 && DistanceDroite > 200 && DistanceGauche > 200){
+  /*if(DistanceDevant > 200 && DistanceDroite > 200 && DistanceGauche > 200){
 
     AvanceMoteur();
 
-  }
-  else{
-    if(DistanceDevant > 135){
+  }*/
+  //else{
+    if(DistanceDevant > 140){
       AvanceMoteur();
       /*if(DistanceDroite > 20 && DistanceGauche > 20){
         AvanceMoteur();
-      }
+      }*/
       
     
       //rectifs
-      if(DistanceGauche < 20){
-        TourneD();
+      if(DistanceGauche < 60){
+        CalibTourneD();
       }
-      else if (DistanceDroite < 20) {
-        TourneG();
-      }*/
+      else if (DistanceDroite < 60) {
+        CalibTourneG();
+      }
     }
     else{
-      if (DistanceDevant<135){
+      if (DistanceDevant<140){
         if(DistanceDevant < 30){
           ReculerMoteur();
         }
@@ -158,5 +169,5 @@ void loop() {
     }
 
   
-  }
+  //}
 }
