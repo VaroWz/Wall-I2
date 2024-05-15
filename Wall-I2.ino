@@ -116,9 +116,9 @@ void loop() {
   //Serial.print("Capteur droite: ");
   //Serial.println(DistanceDroite);
 
-  DistanceDevant = capteur.readRangeSingle();
-  Serial.print("Capteur milieu: ");
-  Serial.println(DistanceDevant);
+  //DistanceDevant = capteur.readRangeSingle();
+  //Serial.print("Capteur milieu: ");
+  //Serial.println(DistanceDevant);
 
   //DistanceGauche = capteurG.readRangeSingle();
   //Serial.print("Capteur gauche: ");
@@ -131,21 +131,15 @@ void loop() {
 
   }*/
   //else{
-    if(DistanceDevant > 140){
-      AvanceMoteur();
-      /*if(DistanceDroite > 20 && DistanceGauche > 20){
-        AvanceMoteur();
-      }*/
-      
-    
-      //rectifs
-      if(DistanceGauche < 60){
-        CalibTourneD();
-      }
-      else if (DistanceDroite < 60) {
-        CalibTourneG();
-      }
+  if(DistanceDevant > 140){
+    AvanceMoteur();
+    if(DistanceGauche < 60){
+      CalibTourneD();
     }
+    else if (DistanceDroite < 60) {
+      CalibTourneG();
+    }
+  }
     else{
       if (DistanceDevant<140){
         if(DistanceDevant < 30){
