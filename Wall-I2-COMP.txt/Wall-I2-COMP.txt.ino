@@ -80,7 +80,7 @@ void TourneDroiteDuree(int duree){
  delay(duree);
 }
 
-void TourneGroiteDuree(int duree){
+void TourneGaucheDuree(int duree){
  TourneG();
  delay(duree);
 }
@@ -88,20 +88,20 @@ void TourneGroiteDuree(int duree){
 void loop(){
 
 StopMoteurDuree(3000);
-AvanceMoteurDuree(2700);
-TourneDroiteDuree(300);
-AvanceMoteurDuree(150);
-TourneGroiteDuree(330);
-AvanceMoteurDuree(600);
-TourneGroiteDuree(300);
+AvanceMoteurDuree(2770);
+TourneDroiteDuree(250);
 AvanceMoteurDuree(200);
-TourneDroiteDuree(300);
-AvanceMoteurDuree(1400);
+TourneGaucheDuree(310);
+AvanceMoteurDuree(700);
+TourneGaucheDuree(300);
+AvanceMoteurDuree(210);
+TourneDroiteDuree(305);
+AvanceMoteurDuree(1300);
 
-TourneGroiteDuree(300);
-AvanceMoteurDuree(400);
-TourneDroiteDuree(350);
-AvanceMoteurDuree(500);
+TourneGaucheDuree(300);
+AvanceMoteurDuree(480);
+TourneDroiteDuree(400);
+AvanceMoteurDuree(650);
 
 
 }
