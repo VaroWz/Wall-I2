@@ -101,7 +101,7 @@ AvanceMoteurDuree(1300);
 TourneGaucheDuree(300);
 AvanceMoteurDuree(480);
 TourneDroiteDuree(400);
-AvanceMoteurDuree(650);
+AvanceMoteurDuree(1500);
 
 
 }
